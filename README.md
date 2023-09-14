@@ -7,6 +7,8 @@
 - **Backend**: Node.js
 - **Database**: MongoDB (same cluster used for project-book-hotel-app)
 
+- npm start -> separately launches frontend and backend
+
 ### Description
 
 The system is designed to manage content of the **project-book-hotel-app**.
