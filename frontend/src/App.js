@@ -12,7 +12,6 @@ function App() {
         <Main />
 
           <div className="App">
-              <h1>Rendered Data from API</h1>
               <ContentList />
           </div>
 

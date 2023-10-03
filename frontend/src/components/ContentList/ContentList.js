@@ -4,9 +4,10 @@ function ContentList() {
     const [contentItems, setContentItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [editingId, setEditingId] = useState(null);
+    const [newName, setNewName] = useState('');
 
     useEffect(() => {
-        // example
         fetch('http://localhost:5001/api/cms_cards')
             .then(response => {
                 if (!response.ok) {
@@ -24,6 +25,29 @@ function ContentList() {
             });
     }, []);
 
+    const handleNameChange = (e) => {
+        setNewName(e.target.value);
+    }
+
+    const saveNameChange = async (id) => {
+        const response = await fetch(`http://localhost:5001/api/cms_cards/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: newName })
+        });
+
+        if (response.ok) {
+            const updatedItem = await response.json();
+            setContentItems(prevItems => prevItems.map(item => item._id === id ? updatedItem : item));
+            setEditingId(null);
+            setNewName('');
+        } else {
+            setError(new Error('Failed to save changes'));
+        }
+    }
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
@@ -33,8 +57,28 @@ function ContentList() {
             <ul>
                 {contentItems.map(item => (
                     <li key={item._id}>
-                        <h3>{item.name}</h3>
-                        <p>{item.description}</p>
+                        {(() => {
+                            if (editingId === item._id) {
+                                return (
+                                    <>
+                                        <input value={newName} onChange={handleNameChange} />
+                                        <button onClick={() => saveNameChange(item._id)}>Save</button>
+                                    </>
+                                );
+                            } else {
+                                return (
+                                    <>
+                                        <h3 onClick={() => {
+                                            setEditingId(item._id);
+                                            setNewName(item.name);
+                                        }}>
+                                            {item.name}
+                                        </h3>
+                                        <p>{item.description}</p>
+                                    </>
+                                );
+                            }
+                        })()}
                     </li>
                 ))}
             </ul>
