@@ -11,6 +11,8 @@
 
 ### Description
 
+![pic001.png](pics/pic001.png)
+
 The system is designed to manage content of the **project-book-hotel-app**.
 
 

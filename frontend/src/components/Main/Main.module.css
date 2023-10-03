@@ -1,0 +1,30 @@
+
+.mainContainer {
+    position: relative; /* This is needed to keep the pseudo-element contained */
+    padding: 2rem 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background: url('./background_pic.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(90vh - 90px);
+}
+
+/* pseudo-element overlays image and make it look semi-transparent */
+.mainContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1; /* This keeps the overlay below the content */
+}
+
+.mainTitle {
+    color: #f9f9f9;
+    font-size: 2.5rem;
+    background-color: rgba(51, 51, 51, 0.6);
+    padding: 1rem;
+    border-radius: 8px;
+}

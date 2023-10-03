@@ -12,7 +12,6 @@ function App() {
         <Main />
 
           <div className="App">
-              <ContentList />
           </div>
 
         <Footer />

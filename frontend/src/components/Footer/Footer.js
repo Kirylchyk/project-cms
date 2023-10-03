@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './Footer.module.css'
 
 function Footer() {
     return (
-        <footer>
-            <p>© 2023 Varvara Kirylchyk -  CMS</p>
-        </footer>
+        <div className={styles.footerContainer}>
+            <p className={styles.footerText}>© 2023 Varvara Kirylchyk - CMS</p>
+        </div>
     );
 }
 

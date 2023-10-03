@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './ContentList.module.css';
 
 function ContentList() {
     const [contentItems, setContentItems] = useState([]);
@@ -52,23 +53,23 @@ function ContentList() {
     if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div>
+        <div className={styles.container}>
             <h2>Content List</h2>
-            <ul>
+            <ul className={styles.list}>
                 {contentItems.map(item => (
-                    <li key={item._id}>
+                    <li key={item._id} className={styles.listItem}>
                         {(() => {
                             if (editingId === item._id) {
                                 return (
                                     <>
                                         <input value={newName} onChange={handleNameChange} />
-                                        <button onClick={() => saveNameChange(item._id)}>Save</button>
+                                        <button className={styles.button} onClick={() => saveNameChange(item._id)}>Save</button>
                                     </>
                                 );
                             } else {
                                 return (
                                     <>
-                                        <h3 onClick={() => {
+                                        <h3 className={styles.title} onClick={() => {
                                             setEditingId(item._id);
                                             setNewName(item.name);
                                         }}>
@@ -87,3 +88,4 @@ function ContentList() {
 }
 
 export default ContentList;
+
