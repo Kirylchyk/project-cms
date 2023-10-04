@@ -23,10 +23,10 @@ Users are able to create, read, update, and delete (CRUD) accommodation cards.
 **Screens**:
 - :white_check_mark: Login Page 
 - :white_check_mark: Main Page
-- :white_check_mark: Login Page Dashboard (overview of the system, including recent updates)
+- :white_check_mark: Dashboard (overview of the system, including recent updates)
 
 **Functions**:
-- - :white_check_mark: Login Page  Pagination
+- :white_check_mark: Pagination
 
 **Notes**:
 - :construction: Version Control: The system allows users to see previous versions of content (draft)
