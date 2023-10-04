@@ -2,33 +2,32 @@
 
 ## Content Management System (CMS)
 
-## Stack:
+## :rocket: Stack:
 - **Frontend**: React.js
 - **Backend**: Node.js
 - **Database**: MongoDB (same cluster used for project-book-hotel-app)
 
 - npm start -> separately launches frontend and backend
 
-### Description
+### :sparkles: Description
 
 ![pic001.png](pics/pic001.png)
 
 The system is designed to manage content of the **project-book-hotel-app**.
-
+(Link: https://github.com/Kirylchyk/project-book-hotel-app)
 
 Offers a user-friendly interface 
 that allows users to manage the content of the booking app. 
 Users are able to create, read, update, and delete (CRUD) accommodation cards.
 
+**Screens**:
+- :white_check_mark: Login Page 
+- :white_check_mark: Main Page
+- :white_check_mark: Login Page Dashboard (overview of the system, including recent updates)
 
-Screens:
-- Login Page 
-- Main Page
-- Dashboard (overview of the system, including recent updates)
+**Functions**:
+- - :white_check_mark: Login Page  Pagination
 
-Functions:
--Pagination
-
-Notes:
-- Version Control: The system allows users to see previous versions of content (draft)
-- Users with different permissions (draft)
+**Notes**:
+- :construction: Version Control: The system allows users to see previous versions of content (draft)
+- :construction: Users with different permissions (draft)
