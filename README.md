@@ -26,6 +26,9 @@ Screens:
 - Main Page
 - Dashboard (overview of the system, including recent updates)
 
+Functions:
+-Pagination
+
 Notes:
 - Version Control: The system allows users to see previous versions of content (draft)
 - Users with different permissions (draft)

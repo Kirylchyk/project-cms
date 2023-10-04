@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ContentList.module.css';
+import { API_ENDPOINT_CMS_CARDS } from '../../utils/utils';
 
 function ContentList() {
     const [contentItems, setContentItems] = useState([]);
@@ -8,8 +9,16 @@ function ContentList() {
     const [editingId, setEditingId] = useState(null);
     const [newName, setNewName] = useState('');
 
+    // Pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 3;
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = contentItems.slice(indexOfFirstItem, indexOfLastItem);
+
+
     useEffect(() => {
-        fetch('http://localhost:5001/api/cms_cards')
+        fetch(API_ENDPOINT_CMS_CARDS)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -31,7 +40,7 @@ function ContentList() {
     }
 
     const saveNameChange = async (id) => {
-        const response = await fetch(`http://localhost:5001/api/cms_cards/${id}`, {
+        const response = await fetch(`${API_ENDPOINT_CMS_CARDS}/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,7 +65,7 @@ function ContentList() {
         <div className={styles.container}>
             <h2>Content List</h2>
             <ul className={styles.list}>
-                {contentItems.map(item => (
+                {currentItems.map(item => (
                     <li key={item._id} className={styles.listItem}>
                         {(() => {
                             if (editingId === item._id) {
@@ -76,6 +85,7 @@ function ContentList() {
                                             {item.name}
                                         </h3>
                                         <p>{item.description}</p>
+                                        <img src={item.imageUrl} alt={item.name} className={styles.image} />
                                     </>
                                 );
                             }
@@ -83,6 +93,15 @@ function ContentList() {
                     </li>
                 ))}
             </ul>
+            <div className={styles.pagination}>
+                {currentPage > 1 && (
+                    <button onClick={() => setCurrentPage(currentPage - 1)}>Previous</button>
+                )}
+                {contentItems.length > indexOfLastItem && (
+                    <button onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
+                )}
+            </div>
+
         </div>
     );
 }

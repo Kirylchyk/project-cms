@@ -66,3 +66,20 @@ input:focus {
     outline: none;
     border-color: #007BFF;
 }
+
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
