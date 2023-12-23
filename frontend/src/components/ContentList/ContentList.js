@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ContentList.module.css';
-import { API_ENDPOINT_CMS_CARDS } from '../../utils/utils';
+import { fetchData, updateData } from '../../utils/Api';
 
 function ContentList() {
     const [contentItems, setContentItems] = useState([]);
@@ -18,13 +18,7 @@ function ContentList() {
 
 
     useEffect(() => {
-        fetch(API_ENDPOINT_CMS_CARDS)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
+        fetchData()
             .then(data => {
                 setContentItems(data);
                 setLoading(false);
@@ -40,22 +34,15 @@ function ContentList() {
     }
 
     const saveNameChange = async (id) => {
-        const response = await fetch(`${API_ENDPOINT_CMS_CARDS}/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name: newName })
-        });
-
-        if (response.ok) {
-            const updatedItem = await response.json();
-            setContentItems(prevItems => prevItems.map(item => item._id === id ? updatedItem : item));
-            setEditingId(null);
-            setNewName('');
-        } else {
-            setError(new Error('Failed to save changes'));
-        }
+        updateData(id, newName)
+            .then(updatedItem => {
+                setContentItems(prevItems => prevItems.map(item => item._id === id ? updatedItem : item));
+                setEditingId(null);
+                setNewName('');
+            })
+            .catch(error => {
+                setError(error);
+            });
     }
 
     if (loading) return <p>Loading...</p>;

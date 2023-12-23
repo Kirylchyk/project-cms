@@ -1,4 +1,4 @@
-# Project
+# :bulb: Project
 
 ## Content Management System (CMS)
 
@@ -16,9 +16,15 @@
 The system is designed to manage content of the **project-book-hotel-app**.
 (Link: https://github.com/Kirylchyk/project-book-hotel-app)
 
-Offers a user-friendly interface 
+**Offers a user-friendly interface** 
 that allows users to manage the content of the booking app. 
-Users are able to create, read, update, and delete (CRUD) accommodation cards.
+Users are able to CRUD:
+- create
+- read
+- update
+- delete any card(s).
+
+![pic002.png](pics/pic002.png)
 
 **Screens**:
 - :white_check_mark: Login Page 
