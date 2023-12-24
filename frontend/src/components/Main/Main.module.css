@@ -28,3 +28,21 @@
     padding: 1rem;
     border-radius: 8px;
 }
+
+.dashboardButton {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: center;
+    text-decoration: none; /* Remove underline from the link */
+    display: inline-block;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.dashboardButton:hover {
+    background-color: #45a049; /* Darker shade of green on hover */
+}

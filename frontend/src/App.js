@@ -21,4 +21,3 @@ function App() {
 }
 
 export default App;
-//test .gitignore works fine

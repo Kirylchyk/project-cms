@@ -11,7 +11,7 @@ function Main() {
             <div>
                 <h1>Main Screen</h1>
                 <Link to="/dashboard">
-                    <button>Go to Dashboard</button>
+                    <button className={styles.dashboardButton}>Go to Dashboard</button>
                 </Link>
             </div>
 
