@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './Dashboard.module.css';
 
 
 function Dashboard() {
@@ -14,13 +15,18 @@ function Dashboard() {
 
     useEffect(() => {
         // Fetch card count
-        fetch('/api/cardCount')
-            .then(response => response.json())
+        fetch('http://localhost:5001/api/dashboard/cardCount')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Server error: ${response.statusText}`);
+                }
+                return response.json();
+            })
             .then(data => setCardCount(data.count))
             .catch(error => console.error('Error fetching card count:', error));
 
         // Fetch average price
-        fetch('/api/averagePrice')
+        fetch('http://localhost:5001/api/dashboard/averagePrice')
             .then(response => response.json())
             .then(data => setAveragePrice(data.averagePrice))
             .catch(error => console.error('Error fetching average price:', error));
@@ -29,11 +35,18 @@ function Dashboard() {
     return (
         <div>
             <h1>Dashboard</h1>
-            <div>
-                <button onClick={goBack}>Back to Main</button>
-                <h2>Card Count: {cardCount}</h2>
-                <h2>Average Price: {averagePrice.toFixed(2)}</h2>
+
+            <div className={styles.dashboard}>
+                <div className={styles.widget}>
+                    <h2>Card Count</h2>
+                    <p className={styles.highlight}>{cardCount}</p>
+                </div>
+                <div className={styles.widget}>
+                    <h2>Average Price</h2>
+                    <p className={styles.highlight}>${averagePrice}</p>
+                </div>
             </div>
+
         </div>
     );
 }

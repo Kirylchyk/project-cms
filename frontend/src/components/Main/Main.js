@@ -9,7 +9,7 @@ function Main() {
         <main className={styles.mainContainer}>
 
             <div>
-                <h1>Main Screen</h1>
+                {/*<h1>Main Screen</h1>*/}
                 <Link to="/dashboard">
                     <button className={styles.dashboardButton}>Go to Dashboard</button>
                 </Link>

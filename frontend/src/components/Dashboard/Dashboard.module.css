@@ -1,0 +1,40 @@
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 10px;
+}
+
+.widget {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.widget:hover {
+    transform: translateY(-5px); /* Slightly raise the widget */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.widget h2 {
+    color: #4a4a4a;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.widget p {
+    color: #5a5a5a;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.widget .highlight {
+    color: #2a9d8f;
+    font-size: 2.2em;
+}

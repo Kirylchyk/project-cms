@@ -29,10 +29,19 @@ Users are able to CRUD:
 **Screens**:
 - :white_check_mark: Login Page 
 - :white_check_mark: Main Page
-- :white_check_mark: Dashboard (overview of the system, including recent updates)
+- :white_check_mark: Dashboard 
 
 **Functions**:
 - :white_check_mark: Pagination
+- :white_check_mark: Hover-over effects
+
+**Screen: Dashboard**
+The screen displays two widgets. Widget "Card Count" calculates 
+in backend the total ids of card in db and get the number via get request.
+Widget "Average Price" counts average price listed in bd.
+
+![pic003.png](pics/pic003.png)
+
 
 **Notes**:
 - :construction: Version Control: The system allows users to see previous versions of content (draft)
