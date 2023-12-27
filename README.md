@@ -16,8 +16,9 @@
 The system is designed to manage content of the **project-book-hotel-app**.
 (Link: https://github.com/Kirylchyk/project-book-hotel-app)
 
-**Offers a user-friendly interface** 
+**The application offers a user-friendly interface** 
 that allows users to manage the content of the booking app. 
+
 Users are able to CRUD:
 - create
 - read
@@ -35,9 +36,10 @@ Users are able to CRUD:
 - :white_check_mark: Pagination
 - :white_check_mark: Hover-over effects
 
-**Screen: Dashboard**
+## **Screen: Dashboard**
 The screen displays two widgets. Widget "Card Count" calculates 
-in backend the total ids of card in db and get the number via get request.
+in backend the total ids of cards stored in db and gets the number via get-request.
+
 Widget "Average Price" counts average price listed in bd.
 
 ![pic003.png](pics/pic003.png)
